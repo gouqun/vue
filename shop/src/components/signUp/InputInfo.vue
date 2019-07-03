@@ -1,17 +1,30 @@
 <template>
   <div class="info-form">
      <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80" >
+<<<<<<< HEAD
         <FormItem label="用户名" prop="name">
             <i-input v-model="formValidate.name" clearable size="large" placeholder="请输入你的姓名"></i-input>
         </FormItem>
         <FormItem label="邮箱" prop="mail">
             <i-input v-model="formValidate.mail" clearable size="large" placeholder="请输入你的邮箱"></i-input>
+=======
+        <FormItem label="用户名" prop="login_name">
+            <i-input v-model="formValidate.login_name" clearable size="large" placeholder="请输入你的姓名"></i-input>
+        </FormItem>
+        <FormItem label="邮箱" prop="customer_email">
+            <i-input v-model="formValidate.customer_email" clearable size="large" placeholder="请输入你的邮箱"></i-input>
+>>>>>>> gouqun1
         </FormItem>
         <FormItem label="密码" prop="password">
             <i-input type="password" v-model="formValidate.password" clearable size="large" placeholder="请输入你的密码"></i-input>
         </FormItem>
+<<<<<<< HEAD
         <FormItem label="确认密码" prop="repassword">
             <i-input type="password" v-model="formValidate.repassword" clearable size="large" placeholder="请再次输入你的密码"></i-input>
+=======
+        <FormItem label="确认密码" prop="req_password">
+            <i-input type="password" v-model="formValidate.req_password" clearable size="large" placeholder="请再次输入你的密码"></i-input>
+>>>>>>> gouqun1
         </FormItem>
         <Button type="error" size="large" long @click="handleSubmit('formValidate')">注册</Button>
     </Form>
@@ -33,6 +46,7 @@ export default {
         callback();
       }
     };
+<<<<<<< HEAD
     return {
       formValidate: {
         name: '',
@@ -45,6 +59,29 @@ export default {
           { required: true, message: '用户名不能为空', trigger: 'blur' }
         ],
         mail: [
+=======
+    let patter = /^[a-zA-Z]+$/;
+    let isNumber = (rule, value, callback) => {
+      if (!patter.test(value)) {
+        return callback(new Error('请输入英文'));
+      } else {
+        callback();
+      }
+    };
+    return {
+      formValidate: {
+        name: '',
+        customer_email: '',
+        password: '',
+        req_password: ''
+      },
+      ruleValidate: {
+        login_name: [
+          { required: true, message: '用户名不能为空', trigger: 'blur' },
+          { validator: isNumber, trigger: 'blur' }
+        ],
+        customer_email: [
+>>>>>>> gouqun1
           { required: true, message: '邮箱不能为空', trigger: 'blur' },
           { type: 'email', message: '邮箱格式错误', trigger: 'blur' }
         ],
@@ -52,16 +89,27 @@ export default {
           { required: true, message: '密码不能为空', trigger: 'blur' },
           { type: 'string', min: 6, message: '密码长度不能小于6', trigger: 'blur' }
         ],
+<<<<<<< HEAD
         repassword: [
+=======
+        req_password: [
+>>>>>>> gouqun1
           { validator: validatePassCheck, trigger: 'blur' }
         ]
       }
     };
   },
+<<<<<<< HEAD
+=======
+  mounted: function () {
+    this.formValidate.phone = this.$route.query.phone;
+  },
+>>>>>>> gouqun1
   methods: {
     ...mapMutations(['SET_SIGN_UP_SETP']),
     ...mapActions(['addSignUpUser']),
     handleSubmit (name) {
+<<<<<<< HEAD
       const father = this;
       this.$refs[name].validate((valid) => {
         if (valid) {
@@ -75,6 +123,26 @@ export default {
           this.addSignUpUser(userinfo);
           father.SET_SIGN_UP_SETP(2);
           this.$router.push({ path: '/SignUp/signUpDone' });
+=======
+      // const father = this;
+      this.$refs[name].validate((valid) => {
+        if (valid) {
+          // this.$Message.success('注册成功');
+          const userinfo = {
+            login_name: this.formValidate.login_name,
+            password: this.formValidate.password,
+            customer_email: this.formValidate.customer_email,
+            mobile_phone: this.$route.query.phone
+          };
+          this.addSignUpUser(userinfo).then(result => {
+            if (result) {
+              this.$router.push({ path: '/SignUp/signUpDone' });
+              this.SET_SIGN_UP_SETP(2);
+            } else {
+              this.$Message.error(this.$store.state.error);
+            }
+          });
+>>>>>>> gouqun1
         } else {
           this.$Message.error('注册失败');
         }

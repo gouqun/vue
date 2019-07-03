@@ -13,7 +13,10 @@ export default new Vuex.Store({
     goodsInfo: { // 商品详情
       goodsImg: [],
       title: '',
+<<<<<<< HEAD
       marketPrice: '',
+=======
+>>>>>>> gouqun1
       tags: [],
       discount: [],
       promotion: [],
@@ -27,6 +30,11 @@ export default new Vuex.Store({
     userInfo: { // 用户信息
       username: ''
     },
+<<<<<<< HEAD
+=======
+    token: [],
+    error: [],
+>>>>>>> gouqun1
     signUpStep: 0, // 登陆步骤
     marketing: { // 营销
       CarouselItems: [], // 轮播图

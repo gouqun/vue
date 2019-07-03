@@ -26,7 +26,11 @@
             <div class="item-price-row">
               <p>
                 <span class="item-price-title">B I T 价</span>
+<<<<<<< HEAD
                 <span class="item-price">￥{{price}}</span>
+=======
+                <span class="item-price">￥{{price.toFixed(2)}}</span>
+>>>>>>> gouqun1
               </p>
             </div>
             <div class="item-price-row">
@@ -96,6 +100,7 @@
 
 <script>
 import store from '@/vuex/store';
+<<<<<<< HEAD
 import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
@@ -104,6 +109,14 @@ export default {
   data () {
     return {
       price: '',
+=======
+import { mapState, mapActions } from 'vuex';
+export default {
+  name: 'ShowGoods',
+  data () {
+    return {
+      price: 0,
+>>>>>>> gouqun1
       count: 1,
       selectBoxIndex: 0,
       imgIndex: 0
@@ -141,6 +154,7 @@ export default {
     }
   },
   methods: {
+<<<<<<< HEAD
     ...mapMutations(['SET_GOODS_INFO']),
     ...mapActions(['GoodsInfo']),
     ...mapActions(['addShoppingCart']),
@@ -153,6 +167,9 @@ export default {
         console.log(result);
       });
     },
+=======
+    ...mapActions(['addShoppingCart']),
+>>>>>>> gouqun1
     select (index1, index2) {
       this.selectBoxIndex = index1 * 3 + index2;
       this.price = this.goodsInfo.setMeal[index1][index2].price;
@@ -165,7 +182,10 @@ export default {
       const index2 = this.selectBoxIndex % 3;
       const date = new Date();
       const goodsId = date.getTime();
+<<<<<<< HEAD
       console.log(date);
+=======
+>>>>>>> gouqun1
       const data = {
         goods_id: goodsId,
         title: this.goodsInfo.title,
@@ -177,12 +197,19 @@ export default {
     }
   },
   mounted () {
+<<<<<<< HEAD
     this.goods();
     const father = this;
     console.log(father.goodsInfo);
     setTimeout(() => {
       father.price = father.goodsInfo.marketPrice || 0;
     }, 300);
+=======
+    const father = this;
+    setTimeout(() => {
+      father.price = father.goodsInfo.setMeal[0][0].price || 0;
+    }, 100);
+>>>>>>> gouqun1
   },
   store
 };

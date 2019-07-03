@@ -7,7 +7,18 @@ export const SET_SIGN_UP_SETP = (state, step) => {
 export const SET_USER_LOGIN_INFO = (state, data) => {
   state.userInfo = data;
 };
+<<<<<<< HEAD
 
+=======
+// 存储token
+export const SET_TOKEN_INDEX = (state, data) => {
+  state.token = data;
+};
+// 注册时错误信息
+export const SET_ERROR_IMG = (state, data) => {
+  state.error = data;
+};
+>>>>>>> gouqun1
 // 设置加载状态
 export const SET_LOAD_STATUS = (state, status) => {
   state.isLoading = status;
@@ -47,10 +58,13 @@ export const REDUCE_SECKILLS_TIME = state => {
     }
   }
 };
+<<<<<<< HEAD
 // 设置首页商品分类
 export const SET_GOODD_CATS = (state, data) => {
   state.goodsCats = data.goodsCats;
 };
+=======
+>>>>>>> gouqun1
 
 // 设置商品列表(搜索)
 export const SET_GOODS_LIST = (state, data) => {
@@ -65,7 +79,10 @@ export const SET_GOODS_ORDER_BY = (state, data) => {
 
 // 设置商品详细信息
 export const SET_GOODS_INFO = (state, data) => {
+<<<<<<< HEAD
   console.log(data);
+=======
+>>>>>>> gouqun1
   state.goodsInfo = data;
 };
 

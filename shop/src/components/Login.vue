@@ -13,7 +13,11 @@
           <div class="form-box">
             <Form ref="formInline" :model="formDate" :rules="ruleInline">
               <FormItem prop="username">
+<<<<<<< HEAD
                   <i-input type="text" v-model="formDate.username" clearable size="large" placeholder="用户名">
+=======
+                  <i-input type="text" v-model="formDate.login_name" clearable size="large" placeholder="用户名">
+>>>>>>> gouqun1
                       <Icon type="person" slot="prepend"></Icon>
                   </i-input>
               </FormItem>
@@ -41,11 +45,19 @@ export default {
   data () {
     return {
       formDate: {
+<<<<<<< HEAD
         username: '',
         password: ''
       },
       ruleInline: {
         username: [
+=======
+        login_name: '',
+        password: ''
+      },
+      ruleInline: {
+        login_name: [
+>>>>>>> gouqun1
           { required: true, message: '请输入用户名', trigger: 'blur' }
         ],
         password: [
@@ -60,7 +72,10 @@ export default {
     ...mapActions(['login']),
     handleSubmit (name) {
       const father = this;
+<<<<<<< HEAD
       console.log(this.formDate.username);
+=======
+>>>>>>> gouqun1
       this.$refs[name].validate((valid) => {
         if (valid) {
           this.login(father.formDate).then(result => {

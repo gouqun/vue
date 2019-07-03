@@ -138,14 +138,32 @@
 
 <script>
 import store from '@/vuex/store';
+<<<<<<< HEAD
 import { mapState, mapMutations, mapActions } from 'vuex';
 
+=======
+import { mapState } from 'vuex';
+>>>>>>> gouqun1
 export default {
   name: 'HomeNav',
   data () {
     return {
       panel1: false,
       panel2: false,
+<<<<<<< HEAD
+=======
+      nav: [
+        '秒杀',
+        '优惠券',
+        '闪购',
+        '拍卖',
+        '服装城',
+        '超市',
+        '生鲜',
+        '全球购',
+        '金融'
+      ],
+>>>>>>> gouqun1
       panelData1: {
         navTags: [ '清洁用品', '美妆商城', '美妆馆', '妆比社', '全球购美妆', '宠物馆' ],
         classNav: [
@@ -250,6 +268,7 @@ export default {
     ...mapState(['marketing'])
   },
   methods: {
+<<<<<<< HEAD
     ...mapMutations(['SET_GOODD_CATS']),
     ...mapActions(['goodsCats']),
 
@@ -265,6 +284,16 @@ export default {
   },
   mounted () {
     this.Cats();
+=======
+    showDetail (index) {
+      index === 1 ? (this.panel1 = true) : (this.panel2 = true);
+    },
+    hideDetail (index) {
+      index === 1 ? (this.panel1 = false) : (this.panel2 = false);
+    }
+  },
+  mounted () {
+>>>>>>> gouqun1
     this.$refs.itemPanel1.style.left =
       this.$refs.navSide.offsetLeft + this.$refs.navSide.offsetWidth + 'px';
     this.$refs.itemPanel2.style.left =

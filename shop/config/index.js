@@ -6,10 +6,15 @@ const path = require('path')
 
 module.exports = {
   dev: {
+<<<<<<< HEAD
+=======
+
+>>>>>>> gouqun1
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+<<<<<<< HEAD
         '/api':{
             target: 'http://shopapi.cn/api/',
             changeOrigin: true,
@@ -17,6 +22,15 @@ module.exports = {
               '^/api': ''   //需要rewrite重写的,
             }
         },
+=======
+      '/api': {
+        target: 'http://www.laravel.cn.cn/api',
+        changeOrigin: true,
+        pathRewrite: {                //需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
+          '^/api': ''
+        }
+      }
+>>>>>>> gouqun1
     },
 
     // Various Dev Server settings
